@@ -14,7 +14,7 @@ import { UtilProvider } from '../../providers/utils';
 export class LoginPage {
 	loginForm:any;
     constructor(public nav:NavController,
-      public auth: AuthProvider, 
+      public auth: AuthProvider,
       public userProvider: UserProvider,
       public util: UtilProvider,
       public storage:Storage) {
@@ -23,10 +23,11 @@ export class LoginPage {
     ngOnInit() {
         this.loginForm = new FormGroup({
             email: new FormControl("",[Validators.required, validateEmail]),
-            password: new FormControl("",Validators.required)
+            password: new FormControl("",Validators.required),
+						activity: new FormControl( "" )
         });
     }
-    
+
 	signin() {
       this.auth.signin(this.loginForm.value)
       .then((data) => {
@@ -37,7 +38,7 @@ export class LoginPage {
           alert.present();
       });
     };
-    
+
     createAccount() {
         let credentials = this.loginForm.value;
         this.auth.createAccount(credentials)

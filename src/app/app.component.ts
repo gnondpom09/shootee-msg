@@ -6,6 +6,7 @@ import { LoginPage } from '../pages/login/login';
 import { TabsPage } from '../pages/tabs/tabs';
 import { AuthProvider } from '../providers/auth-provider/auth-provider';
 
+
 @Component({
   templateUrl: 'app.html'
 })

@@ -1,13 +1,13 @@
 <ion-header>
     <ion-navbar color="primary">
-        <ion-title>Login</ion-title>    
+        <ion-title>Login</ion-title>
     </ion-navbar>
 </ion-header>
 
 <ion-content class="padding">
    <form [formGroup]="loginForm">
     <ion-list>
-       
+
         <ion-item>
             <ion-label floating>Email</ion-label>
             <ion-input type="text" formControlName="email"></ion-input>
@@ -18,11 +18,25 @@
             <ion-input type="password" formControlName="password"></ion-input>
         </ion-item>
     </ion-list>
-    
+
+    <ion-list radio-group formControlName="activity">
+
+      <ion-item>
+        <ion-label>Photographe</ion-label>
+        <ion-radio checked="true" value="Photographe"></ion-radio>
+      </ion-item>
+
+      <ion-item>
+        <ion-label>Modele</ion-label>
+        <ion-radio value="modele"></ion-radio>
+      </ion-item>
+
+    </ion-list>
+
     <div padding>
       <button ion-button primary block (click)="signin()" [disabled]="!loginForm.valid">Sign In</button>
     </div>
-    
+
     <div padding>
       <button ion-button full clear favorite (click)="createAccount()" [disabled]="!loginForm.valid">
           <ion-icon name="person"></ion-icon>

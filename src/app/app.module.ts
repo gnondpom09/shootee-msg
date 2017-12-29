@@ -9,17 +9,26 @@ import { UsersPage } from '../pages/users/users';
 import { ChatsPage } from '../pages/chats/chats';
 import { AccountPage } from '../pages/account/account';
 import { ChatViewPage } from '../pages/chat-view/chat-view';
+import { ProjectsPage } from '../pages/projects/projects';
+import { ModelsPage } from '../pages/models/models';
 
 import { AuthProvider } from '../providers/auth-provider/auth-provider';
 import { ChatsProvider } from '../providers/chats-provider/chats-provider';
 import { UserProvider } from '../providers/user-provider/user-provider';
 import { UtilProvider } from '../providers/utils';
 
+// Upload images
+import { Camera } from '@ionic-native/camera';
+import { Image } from '../providers/image';
+import { Preloader } from '../providers/preloader';
+import { Database } from '../providers/database';
+
 export const firebaseConfig = {
-  apiKey: "AIzaSyC2gX3jlrBugfnBPugX2p0U1XiSqXhrRgQ",
-  authDomain: "chat-app-1e137.firebaseapp.com",
-  databaseURL: "https://chat-app-1e137.firebaseio.com",
-  storageBucket: "chat-app-1e137.appspot.com",
+  apiKey: "AIzaSyDdOzvQzkpRB52K-f3UQZdhs8I00p3Hj8o",
+  authDomain: "login-shootee.firebaseapp.com",
+  databaseURL: "https://login-shootee.firebaseio.com",
+  storageBucket: "login-shootee.appspot.com",
+
 };
 
 const myFirebaseAuthConfig = {
@@ -35,7 +44,9 @@ const myFirebaseAuthConfig = {
     UsersPage,
     ChatsPage,
     AccountPage,
-    ChatViewPage
+    ChatViewPage,
+    ProjectsPage,
+    ModelsPage
   ],
   imports: [
     IonicModule.forRoot(MyApp),
@@ -49,7 +60,12 @@ const myFirebaseAuthConfig = {
     UsersPage,
     ChatsPage,
     AccountPage,
-    ChatViewPage
+    ChatViewPage,
+    ProjectsPage,
+    ModelsPage,
+    Image,
+    Database,
+    preloader
   ],
   providers: [{provide: ErrorHandler, useClass: IonicErrorHandler},
   AuthProvider, ChatsProvider, UserProvider, UtilProvider, Storage]

@@ -1,0 +1,55 @@
+<ion-header>
+   <ion-navbar>
+      <ion-title>
+         Moveez
+      </ion-title>
+      <ion-buttons end>
+       <button
+          ion-button
+          icon-only
+          (click)="addRecord()">
+  	  <ion-icon name="add"></ion-icon>
+       </button>
+    </ion-buttons>
+   </ion-navbar>
+</ion-header>
+
+<ion-content padding>
+
+   <ion-list>
+      <ion-card
+         class="project"
+         text-wrap
+         *ngFor="let project of projects | async">
+         <ion-item>
+            <div *ngIf="project.image">
+               <img [src]="project.image">
+            </div>
+            <h2>{{ project.title }}</h2>
+            <small>{{ project.date }}</small>
+            <p>{{ project.resume }}</p>
+
+            <h5>{{ project.Subject }}</h5>
+
+         </ion-item>
+
+
+         <div class="manage-record" padding>
+           <button
+              ion-button
+              text-center
+              color="primary"
+              (click)="editProject(project)">Edit</button>
+
+           <button
+              ion-button
+              text-center
+              color="danger"
+              (click)="deleteProject(project)">Delete</button>
+       </div>
+
+      </ion-card>
+   </ion-list>
+
+
+</ion-content>

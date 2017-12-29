@@ -1,5 +1,7 @@
 import { Component } from '@angular/core';
-import { ChatsPage } from '../chats/chats'; 
+import { ProjectsPage } from '../projects/projects';
+import { ModelsPage } from '../models/models';
+import { ChatsPage } from '../chats/chats';
 import { AccountPage } from '../account/account';
 import { UsersPage } from '../users/users';
 
@@ -8,7 +10,9 @@ import { UsersPage } from '../users/users';
 	templateUrl: 'tabs.html'
 })
 export class TabsPage {
-	chats = ChatsPage;
-	users = UsersPage;
-    profile = AccountPage;
+	projects = ProjectsPage;
+	models   = ModelsPage;
+	chats    = ChatsPage;
+	users    = UsersPage;
+  profile  = AccountPage;
 }
