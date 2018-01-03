@@ -1,12 +1,12 @@
 import { Component } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
-import { IonicPage, NavController, ViewController, NavParams } from 'ionic-angular';
-import { ImageProvider } from '../../providers/image/image';
-import { PreloaderProvider } from '../../providers/preloader/preloader';
-import { DatabaseProvider } from '../../providers/database/database';
+import { NavController, ViewController, NavParams } from 'ionic-angular';
+import { ImageProvider } from '../../providers/image';
+import { PreloaderProvider } from '../../providers/preloader';
+import { DatabaseProvider } from '../../providers/database';
 import * as firebase from 'firebase';
 
-@IonicPage()
+
 @Component({
   selector: 'page-modals',
   templateUrl: 'modals.html'
@@ -54,7 +54,7 @@ export class ModalsPage {
 
       if(params.get('isEdited'))
       {
-          let movie 		    = params.get('movie'),
+          let project 		    = params.get('project'),
               k;
 
           this.projectTitle	  = project.title;
@@ -67,7 +67,7 @@ export class ModalsPage {
 
           for(k in project.subjects)
           {
-             this.projectSubjects.push(movie.subjects[k].name);
+             this.projectSubjects.push(project.subjects[k].name);
           }
 
           for(k in project.places)
@@ -94,9 +94,9 @@ export class ModalsPage {
       let title	    : string = this.form.controls["title"].value,
 	 	    resume     	: string = this.form.controls["resume"].value,
   		  date  	    : number = this.form.controls["date"].value,
-  		  subjects  	: string = this.form.controls["subjects"].value,
-  		  places    	: string = this.form.controls["places"].value,
-  		  rendersType : string = this.form.controls["rendersType"].value,
+  		  subjects  	: any = this.form.controls["subjects"].value,
+  		  places    	: any = this.form.controls["places"].value,
+  		  rendersType : any = this.form.controls["rendersType"].value,
   		  image       : string = this.projetImage,
   		  types       : any    = [],
         people      : any = [],
@@ -142,7 +142,7 @@ export class ModalsPage {
 	              resume      : resume,
 	              date        : date,
                 image       : uploadedImage,
-	              subjects    : duration,
+	              subjects    : subjects,
                 places      : places,
 	              rendersType : types,
 	              people      : people,
@@ -162,7 +162,7 @@ export class ModalsPage {
              title       : title,
              resume      : resume,
              date        : date,
-             subjects    : duration,
+             subjects    : subjects,
              places      : places,
              rendersType : types,
              people      : people,
@@ -186,7 +186,7 @@ export class ModalsPage {
               resume      : resume,
               date        : date,
               image       : uploadedImage,
-              subjects    : duration,
+              subjects    : subjects,
               places      : places,
               rendersType : types,
               people      : people,
@@ -215,7 +215,7 @@ export class ModalsPage {
       this._IMG.selectImage()
       .then((data) =>
       {
-         this.filmImage = data;
+         this.projetImage = data;
       });
    }
 

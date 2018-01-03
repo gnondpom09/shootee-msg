@@ -62,12 +62,13 @@ const myFirebaseAuthConfig = {
     AccountPage,
     ChatViewPage,
     ProjectsPage,
-    ModelsPage,
-    Image,
-    Database,
-    preloader
+    ModelsPage
   ],
   providers: [{provide: ErrorHandler, useClass: IonicErrorHandler},
-  AuthProvider, ChatsProvider, UserProvider, UtilProvider, Storage]
+  AuthProvider, ChatsProvider, UserProvider, UtilProvider,
+  Image,
+  Database,
+  preloader,
+   Storage]
 })
 export class AppModule {}

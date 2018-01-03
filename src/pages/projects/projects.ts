@@ -1,8 +1,8 @@
 import { Component } from '@angular/core';
 import { NavController, Platform, ModalController } from 'ionic-angular';
-import { ImageProvider } from '../../providers/image/image';
-import { PreloaderProvider } from '../../providers/preloader/preloader';
-import { DatabaseProvider } from '../../providers/database/database';
+import { ImageProvider } from '../../providers/image';
+import { PreloaderProvider } from '../../providers/preloader';
+import { DatabaseProvider } from '../../providers/database';
 import * as firebase from 'firebase';
 import { Http } from '@angular/http';
 import 'rxjs/Rx';
